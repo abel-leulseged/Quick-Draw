@@ -50,4 +50,5 @@ INSERT IMAGE
 
 ## Time log of CNN
 
+## Submission to Kaggle
 
