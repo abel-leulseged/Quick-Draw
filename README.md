@@ -10,7 +10,7 @@ To begin, the training data comes from the actual Google game itself. Consequent
 ## Data:
 We are given two datasets from Kaggle. The raw data (65.87 GB) is the exact input recorded from user drawing. The simplified data (7.37 GB) removes unnecessary information from the vector. Kaggle provides such an example. Imagine a straight line was recorded with 8 points. Then the simplified version removes 6 points to create a line with 2 points. Each csv file represents one "label" representing the drawing. Each row in the csv file represents a drawing or sketch with multiple strokes. Each stroke is represented by x,y, and t coordinates where t stands for time. Moreover, these are represented by nested arrays. 
 
-INSERT IMAGE 
+<img width="241" alt="data" src="https://user-images.githubusercontent.com/39183226/49924634-b9628f00-fe6b-11e8-855f-028761919324.PNG">
 
 ## Approach: RNN vs CNN:
 The two most common type of neural network structures used were RNN and CNN. Our first choice was to implement an RNN. Consequently, we took a baseline model from Kevin Mader and decided to first see how well it performed. We discovered that there were many issues with the baseline model. First, the training took too long, the accuracy was too low, and the model was too complicated relative to its performance.
