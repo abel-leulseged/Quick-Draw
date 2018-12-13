@@ -31,7 +31,6 @@ The Architecture of the modified RNN:
 Modified RNN Results:
 ![rnn_final](https://user-images.githubusercontent.com/35898484/49917041-65977c00-fe52-11e8-8c7d-da7a964f3e7a.PNG)
 
-INSERT IMAGE OF ARCITECT
 
 ### CNN
 We next attempted to compare the performance of our modified RNN to a CNN model. As a result, we similarly took a baseline model from JohnM and modified it with our own ideas. For the architecture of the model, we found that it was best to start with a 2D convolutional layer instead of a fully connected layer because it would otherwise lose spatial information. We also kept some of the original structure such as the implementation of max pooling to down sample the features and flatten to transform a tensor of any shape to a one dimensional tensor. Finally, we incorporated drop outs in between each dense layer that we added. The reason we added it after a dense layer instead of a convolutional layer was that a convolutional layer has less parameters than a dense layer. As a result, a convolutional layer has less of a need for regularization to prevent overfitting compared to a fully connected dense layer. When run on the Kaggle kernel, the final result of our implementation came out to be a validation accuracy of 65.63%, validation loss of 1.2015, and a top 3 validation accuracy of 85.17%. The results of the loss and accuracy are shown in the graph below.
