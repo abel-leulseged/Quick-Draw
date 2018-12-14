@@ -16,7 +16,12 @@ We are given two datasets from Kaggle. The raw data (65.87 GB) is the exact inpu
 ## Approach: 
 
 ### Issues
-BLAHBLAH
+**Getting Data onto GCE**
+**Cleaning Data**
+**Loading and Cleaning the Data repeatdely for different runs**
+**Time and Resource Exhaustion during hyperparameter tuning**
+**Jupyter Lab crashing**
+
 
 ### RNN
 The two most common type of neural network structures used were RNN and CNN. Our first choice was to implement an RNN. Consequently, we took a baseline model from Kevin Mader and decided to first see how well it performed. We discovered that there were many issues with the baseline model. First, the training took too long, the accuracy was too low, and the model was too complicated relative to its performance.
