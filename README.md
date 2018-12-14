@@ -17,10 +17,11 @@ We are given two datasets from Kaggle. The raw data (65.87 GB) is the exact inpu
 
 ### Issues and Challenges
 **Getting Data onto GCE**  
-Since our dataset was so big (~70 GB total), it was hard to get it onto our google compute instance. We looked into and tried out a few approaches but the one we ended up using, which in our opinion was the simplest solution was to mount the file system of our GCE instance into our local machine and treat our entire GCE directory as a local subdirectory. We were then able to just copy the dataset as you would any file from one subdirectory to another. This was also helpful when we later wanted to actually open and look at some of the csv files in our dataset since using vim while we were SSHed to look at a csv with thousands of lines was rather messy. The instrictions we found and followed on how to mount filesystems can be found [here](https://www.cs.hmc.edu/~geoff/classes/hmc.cs105.201501/sshfs.html)   
+Since our dataset was so big (~70 GB total), it was hard to get it onto our google compute instance. We looked into and tried out a few approaches but the one we ended up using, which in our opinion was the simplest solution was to mount the file system of our GCE instance into our local machine and treat our entire GCE directory as a local subdirectory. We were then able to just copy the dataset as you would any file from one subdirectory to another. This was also helpful when we later wanted to actually open and look at some of the csv files in our dataset since using vim while we were SSHed to look at a csv with thousands of lines was rather messy. The instructions we found and followed on how to mount filesystems can be found [here](https://www.cs.hmc.edu/~geoff/classes/hmc.cs105.201501/sshfs.html).   
 **Cleaning Data**  
 For our CNN model, we tried converting the stroke of the drawings into images and saving them into subdirectories for later training. Even though we tried different variations improving the efficiency of our code, it would takes incredibly long to run. We later found an online implementation that used a few tricks to expedite the cleaning code (i.e. not writing out the images into actual files, using matplotlib instead of PIL or openCV.   
 **Loading and Cleaning the Data repeatdely for different runs**
+Since we were working with such a huge dataset, we would have to load and clean the data for every session. Even with the subset of the smaller dataset, this takes incredibly long. As such, we looked into ways we could save the loaded and cleaned panda dataframes for easier and faster reloading. We chose to use the HDF5 file format. However, even th 
 **Time and Resource Exhaustion during hyperparameter tuning**
 **Jupyter Lab crashing**
 
@@ -32,7 +33,7 @@ TALK MORE ABOUT RNN
 Initial RNN Results
 ![rnn_initial](https://user-images.githubusercontent.com/35898484/49917030-54e70600-fe52-11e8-868d-f5dbd7f3194a.PNG)
 
-The Architecture of the modified RNN: 
+The Architecture of the modified RNN:   
 <img width="306" alt="modified_rnn" src="https://user-images.githubusercontent.com/39183226/49924850-1fe7ad00-fe6c-11e8-86d3-b47cf18d084c.PNG">
 
 Modified RNN Results:
