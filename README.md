@@ -16,7 +16,7 @@ We are given two datasets from Kaggle. The raw data (65.87 GB) is the exact inpu
 ## Approach: 
 
 ### Issues
-**Getting Data onto GCE**
+**Getting Data onto GCE**  
 Since our dataset was so big (~70 GB total), it was hard to get it onto our google compute instance. We looked into and tried out a few approaches but the one we ended up using, which in our opinion was the simplest solution was to mount the file system of our GCE instance into our local machine and treat our entire GCE directory as a local subdirectory. We were then able to just copy the dataset as you would any file from one subdirectory to another. This was also helpful when we later wanted to actually open and look at some of the csv files in our dataset since using vim while we were SSHed to look at a csv with thousands of lines was rather messy. The instrictions we found and followed on how to mount filesystems can be found (here)[https://www.cs.hmc.edu/~geoff/classes/hmc.cs105.201501/sshfs.html] 
 **Cleaning Data**
 **Loading and Cleaning the Data repeatdely for different runs**
