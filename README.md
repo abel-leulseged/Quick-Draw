@@ -21,10 +21,11 @@ Since our dataset was so big (~70 GB total), it was hard to get it onto our goog
 **Cleaning Data**  
 For our CNN model, we tried converting the stroke of the drawings into images and saving them into subdirectories for later training. Even though we tried different variations improving the efficiency of our code, it would takes incredibly long to run. We later found an online implementation that used a few tricks to expedite the cleaning code (i.e. not writing out the images into actual files, using matplotlib instead of PIL or openCV.   
 **Loading and Cleaning the Data repeatdely for different runs**
-Since we were working with such a huge dataset, we would have to load and clean the data for every session. Even with the subset of the smaller dataset, this takes incredibly long. As such, we looked into ways we could save the loaded and cleaned panda dataframes for easier and faster reloading. We chose to use the HDF5 file format. However, even th 
-**Time and Resource Exhaustion during hyperparameter tuning**
-**Jupyter Lab crashing**
-
+Since we were working with such a huge dataset, we would have to load and clean the data for every session. Even with the subset of the smaller dataset, this takes incredibly long. As such, we looked into ways we could save the loaded and cleaned panda dataframes for easier and faster reloading. We chose to use the HDF5 file format. However, even though we tried different ways of storing dataframes onto HDF5 files, we kept running into errors related to our version of python and or pandas. And since it did not seem reasoanble to downgrade an already working part of our virtual environment, we chose to abandon this avenue.  
+**Time and Resource Exhaustion during hyperparameter tuning**   
+We repeatdely ran into Resource ehaustion errors. We would often not know how to fix this error so we would switch temporarily to a Kaggle kernel (considerably slower than our GCE instance). And since Kaggle has a 6 hour time limit and we also ran into the same error there, we concluded the error was not specific to our GCE instance. Upon further investigation, we found that our GPU memory was full. We fixed this by clearning our GPU memory using the %reset -f command. Note that clearing and restarting the kernel does not fix this.   
+**Jupyter Lab crashing**   
+We also had issues with Jupyter Lab where it kept crashing when we print out too much training information.
 
 ### RNN
 The two most common type of neural network structures used were RNN and CNN. Our first choice was to implement an RNN. Consequently, we took a baseline model from Kevin Mader and decided to first see how well it performed. We discovered that there were many issues with the baseline model. First, the training took too long, the accuracy was too low, and the model was too complicated relative to its performance.
@@ -46,7 +47,7 @@ We next attempted to compare the performance of our modified RNN to a CNN model.
 Final Results: 
 ![cnn](https://user-images.githubusercontent.com/35898484/49917050-70521100-fe52-11e8-996f-dc249dda0dfc.PNG)
 
-Modified CNN Architecture:
+Modified CNN Architecture:   
 <img width="241" alt="cnn_modified" src="https://user-images.githubusercontent.com/39183226/49924936-65a47580-fe6c-11e8-9f17-ac50221bda91.PNG">
 
 ## Thoughts on difference between RNN and CNN
