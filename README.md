@@ -70,7 +70,7 @@ Also the above times are only runtimes for training the model and do not account
 ## Submission to Kaggle
 # References
 Baseline RNN model forked from Kevin Mader [here](https://www.kaggle.com/kmader/quickdraw-baseline-lstm-reading-and-submission)  
-CNN model froked from JohnM [here]
+CNN model froked from JohnM [here]  
 http://cs230.stanford.edu/files_winter_2018/projects/6921313.pdf  
 https://uu.diva-portal.org/smash/get/diva2:1218490/FULLTEXT01.pdf  
 https://arxiv.org/pdf/1704.03477.pdf  
