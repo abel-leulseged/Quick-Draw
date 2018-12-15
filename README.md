@@ -61,7 +61,7 @@ INSERT IMAGE
 
 ## Time log
 We have recorded performace for 16 different RNN models (they are mostly similar except for some minor changes) and each of these 16 initial models took about 16 mins each. As for our later simpler RNN models, we only recorded the runtime for 7 of them each about 4-5 mins. Note that these are just the ones we remember and recorded the runtimes for. There were many more intermediate models.   
-In general, the overall runtime just for the RNN models with 10 epochs is about $16 \times 16 + 7 \times 4=284 mins~4.7 hours$  
+In general, the overall runtime just for the RNN models with 10 epochs is about 16*16 + 7*4=284 mins~4.7 hours$  
 As for the very few times we ran a few of the better models on the whole dataset for a 100 epochs, that typically took about 
 45 mins to an hour per model depending on the batch size and model (CNN or RNN).  
 We spent considerable time looking into research publication and related Kaggle competition discussion and reading up on ways to improve perfomance.  
