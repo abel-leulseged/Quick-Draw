@@ -32,7 +32,7 @@ The two most common type of neural network structures used were RNN and CNN. Our
 We referred to various research articles and kaggle discussions on how we could improve the baseline RNN model. To begin with, we chose to simplify the model. The first thing we did was remove all dropout layers. Since the model was not doing well enough to even overfit, it did not make sense to have regularization yet. Removing all the dropout layers increased our initial accuracy of 4.6% and top 3 accuracy of 10.8% to an accuracy of 8.3 and top 3 accuracy of 15% (both for just 10 epochs on the whole data). This seemed to indicate we were on the right path so we proceeded to simplify the model even further. We removed all the 1D convolutions and instead used only one Global Average Pooling layer, which according to some experts in the kagl discussion and a research paper found [here]() is actually better in that it can also be used to regularize. Through various combination of parameters and after numerous test runs, we eventually chose to have the architecture shown below. However, there are various architectures that we came across during the course of this project that we came up with on our own or read about in publications.  
 For instance, one of our simpler architectures with no dropout and just one LSTM (totally 44,396 trainable params) had accuracy: 13.0%, Top 3 Accuracy:25.3%.  
 When we made the LSTM bidirectional we got Accuracy: 18.5%, Top 3 Accuracy 33.9%.
-To put these values in context, the baseline model took 16.443 mins to train for 10 epochs on the whole dataset and got Accuracy: 4.6%, Top 3 Accuracy 10.8% whereas our model took 251 sec ~4.2 mins to train and had Accuracy: 18.5%, Top 3 Accuracy 33.9%. Also, please keep in mind that these accuracies are low because we are only doing 10 epochs and this as done to expedite hyperparameter tuning and training since having to run for hundreds of epochs everytime we change some parameter would take a few hours for a single model.
+To put these values in context, the baseline model took 16.443 mins to train for 10 epochs on the whole dataset and got Accuracy: 4.6%, Top 3 Accuracy 10.8% whereas our model took 251 sec ~4.2 mins to train and had Accuracy: 18.5%, Top 3 Accuracy 33.9%. Also, please keep in mind that these accuracies are low because we are only doing 10 epochs and this was done to expedite hyperparameter tuning and training since having to run for hundreds of epochs everytime we change some parameter would take a few hours for a single model.
 
 
 Initial RNN Results
@@ -46,7 +46,7 @@ Modified RNN Results:
 
 
 ### CNN
-We next attempted to compare the performance of our modified RNN to a CNN model. As a result, we similarly took a baseline model from JohnM and modified it with our own ideas. For the architecture of the model, we found that it was best to start with a 2D convolutional layer instead of a fully connected layer because it would otherwise lose spatial information. We also kept some of the original structure such as the implementation of max pooling to down sample the features and flatten to transform a tensor of any shape to a one dimensional tensor. Finally, we incorporated drop outs in between each dense layer that we added. The reason we added it after a dense layer instead of a convolutional layer was that a convolutional layer has less parameters than a dense layer. As a result, a convolutional layer has less of a need for regularization to prevent overfitting compared to a fully connected dense layer. When run on the Kaggle kernel, the final result of our implementation came out to be a validation accuracy of 65.63%, validation loss of 1.2015, and a top 3 validation accuracy of 85.17%. The results of the loss and accuracy are shown in the graph below.
+We next attempted to compare the performance of our modified RNN to a CNN model since the model thata won first place was a CNN model. As a result, we similarly took a baseline model from JohnM and after some minor tweaks. For the architecture of the model, we found that it was best to start with a 2D convolutional layer instead of a fully connected layer because it would otherwise lose spatial information. We also kept some of the original structure such as the implementation of max pooling to down sample the features and flatten to transform a tensor of any shape to a one dimensional tensor. Finally, we incorporated drop outs in between each dense layer that we added. The reason we added it after a dense layer instead of a convolutional layer was that a convolutional layer has less parameters than a dense layer. As a result, a convolutional layer has less of a need for regularization to prevent overfitting compared to a fully connected dense layer. When run on the Kaggle kernel, the final result of our implementation came out to be a validation accuracy of 65.63%, validation loss of 1.2015, and a top 3 validation accuracy of 85.17%. The results of the loss and accuracy are shown in the graph below.
 
 Final Results: 
 ![cnn](https://user-images.githubusercontent.com/35898484/49917050-70521100-fe52-11e8-996f-dc249dda0dfc.PNG)
@@ -59,9 +59,12 @@ After comparing the results, we found that the CNN model resulted in a better ac
 
 INSERT IMAGE 
 
-## Time log of RNN
-
-## Time log of CNN
-
+## Time log
+We have recorded performace for 16 different RNN models (they are mostly similar except for some minor changes) and each of these 16 initial models took about 16 mins each. As for our later simpler RNN models, we only recorded the runtime for 7 of them each about 4-5 mins. Note that these are just the ones we remember and recorded the runtimes for. There were many more intermediate models.   
+In general, the overall runtime just for the RNN models with 10 epochs is about $16 \times 16 + 7 \times 4=284 mins~4.7 hours$  
+As for the very few times we ran a few of the better models on the whole dataset for a 100 epochs, that typically took about 
+45 mins to an hour per model depending on the batch size and model (CNN or RNN).  
+We spent considerable time looking into research publication and related Kaggle competition discussion and reading up on ways to improve perfomance.  
+Also the above times are only runtimes for training the model and do not account for the time it took to load and clean the data.  
 ## Submission to Kaggle
 
