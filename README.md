@@ -68,4 +68,13 @@ As for the very few times we ran a few of the better models on the whole dataset
 We spent considerable time looking into research publication and related Kaggle competition discussion and reading up on ways to improve perfomance.  
 Also the above times are only runtimes for training the model and do not account for the time it took to load and clean the data.  
 ## Submission to Kaggle
+# References
+Baseline RNN model forked from Kevin Mader [here](https://www.kaggle.com/kmader/quickdraw-baseline-lstm-reading-and-submission)  
+CNN model froked from JohnM [here]
+http://cs230.stanford.edu/files_winter_2018/projects/6921313.pdf  
+https://uu.diva-portal.org/smash/get/diva2:1218490/FULLTEXT01.pdf  
+https://arxiv.org/pdf/1704.03477.pdf  
+https://www.theverge.com/2017/6/26/15877020/google-ai-experiment-sketch-rnn-doodles-quick-draw  
+https://github.com/KKeishiro/Sketch-RNN/blob/master/sketch_rnn_model.py  
+https://www.kaggle.com/c/quickdraw-doodle-recognition/discussion/70558  
 
