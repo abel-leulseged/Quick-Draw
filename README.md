@@ -69,9 +69,7 @@ As for the very few times, we ran a few of the better models on the whole datase
 45 mins to an hour per model depending on the batch size and model (CNN or RNN).  
 We spent considerable time looking into research publication and related Kaggle competition discussion and reading up on ways to improve performance.  
 Also the above times are only runtimes for training the model and do not account for the time it took to load and clean the data.  
-## Submission to Kaggle  
-CNN Model submission  
-![cnn_submission](https://user-images.githubusercontent.com/35898484/50037137-381e1000-ffc3-11e8-93d1-9c86a0db60ed.png)  
+## Example Submission to Kaggle   
 RNN baseline submission  
 ![rnn_baseline_submission](https://user-images.githubusercontent.com/35898484/50037183-9d720100-ffc3-11e8-8ea4-1b15060b480c.png)  
 RNN Modified submission    
